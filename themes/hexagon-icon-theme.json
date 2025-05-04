@@ -1,0 +1,24 @@
+{
+    "iconDefinitions": {
+      "_folder": {
+        "iconPath": "../assets/hexagon-closed.svg"
+      },
+      "_folderExpanded": {
+        "iconPath": "../assets/hexagon-open.svg"
+      },
+      "_folderLight": {
+        "iconPath": "../assets/hexagon-closed-light.svg"
+      },
+      "_folderExpandedLight": {
+        "iconPath": "../assets/hexagon-open-light.svg"
+      }
+    },
+    "folder": "_folder",
+    "folderExpanded": "_folderExpanded",
+    "hidesExplorerArrows": true,
+    "light": {
+      "folder": "_folderLight",
+      "folderExpanded": "_folderExpandedLight"
+    }
+  }
+  

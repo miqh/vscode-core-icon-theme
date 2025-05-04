@@ -1,0 +1,61 @@
+{
+  "name": "core-icon-theme",
+  "displayName": "Core Icon Theme",
+  "description": "Freedom from icon clutter.",
+  "version": "0.1.0",
+  "publisher": "miqh",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "icon-theme",
+    "icons",
+    "theme"
+  ],
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=miqh.core-icon-theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miqh/vscode-core-icon-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miqh/vscode-core-icon-theme/issues"
+  },
+  "icon": "./logo.png",
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "core-circle",
+        "label": "Core (Circle)",
+        "path": "./themes/circle-icon-theme.json"
+      },
+      {
+        "id": "core-circle-sm",
+        "label": "Core (Circle Small)",
+        "path": "./themes/circle-sm-icon-theme.json"
+      },
+      {
+        "id": "core-hexagon",
+        "label": "Core (Hexagon)",
+        "path": "./themes/hexagon-icon-theme.json"
+      },
+      {
+        "id": "core-hexagon-sm",
+        "label": "Core (Hexagon Small)",
+        "path": "./themes/hexagon-sm-icon-theme.json"
+      },
+      {
+        "id": "core-round-square",
+        "label": "Core (Round Square)",
+        "path": "./themes/round-square-icon-theme.json"
+      },
+      {
+        "id": "core-round-square-sm",
+        "label": "Core (Round Square Small)",
+        "path": "./themes/round-square-sm-icon-theme.json"
+      }
+    ]
+  }
+}
