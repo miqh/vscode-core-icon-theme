@@ -1,11 +1,11 @@
 {
   "name": "core-icon-theme",
   "displayName": "Core Icon Theme",
-  "description": "Freedom from icon clutter.",
-  "version": "0.1.0",
+  "description": "No icon variation clutter.",
+  "version": "0.2.0",
   "publisher": "miqh",
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.106.1"
   },
   "categories": [
     "Themes"
@@ -23,39 +23,90 @@
   "bugs": {
     "url": "https://github.com/miqh/vscode-core-icon-theme/issues"
   },
-  "icon": "./logo.png",
+  "icon": "./images/logo.png",
+  "main": "./dist/extension.desktop.cjs",
+  "browser": "./dist/extension.web.cjs",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "qna": false,
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
+    "configuration": {
+      "title": "Core Icon Theme",
+      "type": "object",
+      "properties": {
+        "coreIconTheme.emptyFileIcon": {
+          "type": "boolean",
+          "title": "Empty File Icon",
+          "description": "Use an empty placeholder icon for file items. This affects the alignment of text appearing alongside file items in areas such as the explorer view.",
+          "default": false
+        },
+        "coreIconTheme.iconColor": {
+          "type": "string",
+          "title": "Icon Colour",
+          "description": "Change the colour of icons.",
+          "pattern": "^#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
+          "patternErrorMessage": "Value must be a colour of the form #RGB, #RGBA, #RRGGBB or #RRGGBBAA.",
+          "default": "#cccccc"
+        },
+        "coreIconTheme.iconType": {
+          "type": "string",
+          "title": "Icon Type",
+          "description": "Change the icon design.",
+          "enum": [
+            "circle",
+            "circle-sm",
+            "hexagon",
+            "hexagon-sm",
+            "round-bar",
+            "round-bar-sm",
+            "round-square",
+            "round-square-sm"
+          ],
+          "enumItemLabels": [
+            "Circle",
+            "Circle (Small)",
+            "Hexagon",
+            "Hexagon (Small)",
+            "Round Bar",
+            "Round Bar (Small)",
+            "Round Square",
+            "Round Square (Small)"
+          ],
+          "default": "round-square"
+        }
+      }
+    },
     "iconThemes": [
       {
-        "id": "core-circle",
-        "label": "Core (Circle)",
-        "path": "./themes/circle-icon-theme.json"
-      },
-      {
-        "id": "core-circle-sm",
-        "label": "Core (Circle Small)",
-        "path": "./themes/circle-sm-icon-theme.json"
-      },
-      {
-        "id": "core-hexagon",
-        "label": "Core (Hexagon)",
-        "path": "./themes/hexagon-icon-theme.json"
-      },
-      {
-        "id": "core-hexagon-sm",
-        "label": "Core (Hexagon Small)",
-        "path": "./themes/hexagon-sm-icon-theme.json"
-      },
-      {
-        "id": "core-round-square",
-        "label": "Core (Round Square)",
-        "path": "./themes/round-square-icon-theme.json"
-      },
-      {
-        "id": "core-round-square-sm",
-        "label": "Core (Round Square Small)",
-        "path": "./themes/round-square-sm-icon-theme.json"
+        "id": "core-icon-theme",
+        "label": "Core Icon Theme",
+        "path": "./dist/core-icon-theme.json",
+        "_watch": true
       }
     ]
+  },
+  "scripts": {
+    "build": "node ./build.mjs",
+    "build:release": "node ./build.mjs --release",
+    "check": "tsc --noEmit",
+    "lint": "eslint",
+    "vscode:prepublish": "npm run check && npm run lint && npm run build:release"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@types/node": "^22",
+    "@types/vscode": "^1.106.1",
+    "esbuild": "0.27.1",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "prettier": "3.7.4",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.48.1"
   }
 }

@@ -2,12 +2,34 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}"
-      ],
-      "name": "Extension",
+      "name": "Run Extension (Desktop)",
+      "type": "extensionHost",
       "request": "launch",
-      "type": "extensionHost"
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--disable-extensions",
+        "--profile-temp"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/dist/extension.desktop.js",
+      ],
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Run Extension (Web)",
+      "type": "extensionHost",
+      "request": "launch",
+      "debugWebWorkerHost": true,
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionDevelopmentKind=web",
+        "--disable-extensions",
+        "--profile-temp"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/dist/extension.web.js",
+      ],
+      "preLaunchTask": "build"
     }
   ]
 }
